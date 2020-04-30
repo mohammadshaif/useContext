@@ -7,7 +7,7 @@ import Category from './components/Category/Category';
 export const CategoryContext = createContext();
 
 function App() {
-  const [catagories,setCategory]=useState('lunch ')
+  const [catagories,setCategory]=useState('lunch')
   return (
     <div className="App">
       <CategoryContext.Provider value={[catagories,setCategory]}>

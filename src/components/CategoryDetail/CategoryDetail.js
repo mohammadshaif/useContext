@@ -5,8 +5,8 @@ const CategoryDetail = (props) => {
     console.log(name);
     return (
         <div >
-            <img style={{"width":"250px","height":"250px"}} src={img} alt=""/>
-            <h1>{name} </h1>
+<img style={{"width":"250px","height":"250px"}} src={img} alt=""/>
+<h1>{name} </h1>
         </div>
     );
 };

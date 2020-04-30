@@ -9,7 +9,11 @@ const Category = () => {
   const [catagories] = useContext(CategoryContext)
   const [items, setItems] = useState([])
   
+
+
+
   const [allProducts, setAllProducts] = useState([]) 
+    
   useEffect(() => {
     fetch('https://secret-tundra-37169.herokuapp.com/foods/')
       .then(response => response.json())
@@ -20,7 +24,7 @@ const Category = () => {
       })
 
   }, [])
-// ok vai
+  
   useEffect(() => {
     const matchPd = allProducts.filter(pd => pd.catagories === catagories)
     setItems(matchPd)
