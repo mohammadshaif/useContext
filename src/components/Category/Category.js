@@ -5,40 +5,38 @@ import foods from '../foodData';
 
 const Category = () => {
   //fake data
-   //const allProducts = foods
-    const [catagories]= useContext(CategoryContext)
-    const [items, setItems]= useState([])
-    console.log(items);
-    
+  //const allProducts = foods
+  const [catagories] = useContext(CategoryContext)
+  const [items, setItems] = useState([])
   
-
-    const [allProducts, setAllProducts] = useState([]) 
-    // console.log(allProducts.title) 
-useEffect(()=>{
+  const [allProducts, setAllProducts] = useState([]) 
+  useEffect(() => {
     fetch('https://secret-tundra-37169.herokuapp.com/foods/')
-    .then(response => response.json())
-    .then(data => {
-      setAllProducts(data)
-    })
-    
-},[])
+      .then(response => response.json())
+      .then(data => {
+        setAllProducts(data)
+        // const matchPd = data.filter(pd => pd.catagories === catagories)
+        // setItems(matchPd)
+      })
 
-    useEffect(()=>{
-        const matchPd = allProducts.filter(pd=>pd.catagories===catagories)
-        setItems(matchPd)
-    },[catagories])
+  }, [])
+// ok vai
+  useEffect(() => {
+    const matchPd = allProducts.filter(pd => pd.catagories === catagories)
+    setItems(matchPd)
+  }, [catagories,allProducts])
 
-    return (
-        <div style={{"display":"flex"}}>
-          {
-              
-              items.map(pd=><CategoryDetail 
-                key = {pd.id}
-                product={pd}></CategoryDetail>)
-             
-          }
-        </div>
-    );
+  return (
+    <div style={{ "display": "flex" }}>
+      {
+
+        items.map(pd => <CategoryDetail
+          key={pd.id}
+          product={pd}></CategoryDetail>)
+
+      }
+    </div>
+  );
 };
 
 export default Category;
